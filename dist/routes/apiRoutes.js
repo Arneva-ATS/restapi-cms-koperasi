@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const authRoutes_1 = __importDefault(require("./authRoutes"));
+const userRoutes_1 = __importDefault(require("./userRoutes"));
+const cooperativeCenterRoutes_1 = __importDefault(require("./cooperativeCenterRoutes"));
+const cooperativeBranchRoutes_1 = __importDefault(require("./cooperativeBranchRoutes"));
+const billingRoutes_1 = __importDefault(require("./billingRoutes"));
+const adsContentRoutes_1 = __importDefault(require("./adsContentRoutes"));
+const router = (0, express_1.Router)();
+router.use(authRoutes_1.default);
+router.use(userRoutes_1.default);
+router.use(cooperativeCenterRoutes_1.default);
+router.use(cooperativeBranchRoutes_1.default);
+router.use(billingRoutes_1.default);
+router.use(adsContentRoutes_1.default);
+exports.default = router;

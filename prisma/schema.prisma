@@ -1,0 +1,151 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CooperativeCenter {
+  id                  Int                @id @default(autoincrement())
+  code                String             @db.VarChar(30) @unique
+  name                String             @db.VarChar(50)
+  billing_id          Int?
+  billing             Billings?          @relation(fields: [billing_id], references: [id])
+  valid_until_date    DateTime?
+  status              Status             @default(inactive)
+  created_at          DateTime           @default(now())
+  updated_at          DateTime           @default(now())
+
+
+  cooperativeBranches    CooperativeBranch[]
+  users Users[]
+  adsContent AdsContent[]
+
+  @@map(name: "cooperative_center")
+}
+
+model CooperativeBranch {
+  id                          Int                     @id @default(autoincrement())
+  cooperative_center_code     String?                 @db.VarChar(30)
+  cooperativeCenter           CooperativeCenter?      @relation(fields: [cooperative_center_code], references: [code])
+  code                        String                  @db.VarChar(30) @unique
+  name                        String                  @db.VarChar(50)
+  billing_id                  Int?
+  billing                     Billings?               @relation(fields: [billing_id], references: [id])
+  valid_until_date            DateTime?
+  status                      Status                  @default(inactive)
+  created_at                  DateTime                @default(now())
+  updated_at                  DateTime                @default(now())
+
+  users Users[]
+  adsContent AdsContent[]
+
+  @@map(name: "cooperative_branch")
+}
+
+model Billings {
+  id                      Int                  @id @default(autoincrement())
+  title                   String               @db.VarChar(50)
+  price                   Int
+  payment_period          PaymentPeriod        
+  description             String               @db.VarChar(255)
+  status                  BillingStatus
+  created_at              DateTime             @default(now())
+  updated_at              DateTime             @default(now())
+  cooperativeCenters      CooperativeCenter[]
+  cooperativeBranches     CooperativeBranch[]
+
+  @@map(name: "billings")
+}
+
+model Users {
+  id                          Int                        @id @default(autoincrement())
+  code                        String                     @db.VarChar(30) @unique
+  name                        String                     @db.VarChar(50)
+  email                       String                     @db.VarChar(50) @unique
+  password                    String                     @db.VarChar(255)
+  role                        RoleUser                   
+  token                       String                     @db.VarChar(255) @unique
+  cooperative_center_code     String?                    @db.VarChar(30)
+  cooperativeCenter           CooperativeCenter?         @relation(fields: [cooperative_center_code], references: [code])
+  cooperative_branch_code     String?                    @db.VarChar(30)
+  cooperativeBranch           CooperativeBranch?         @relation(fields: [cooperative_branch_code], references: [code])
+  created_at                  DateTime                   @default(now())
+  updated_at                  DateTime                   @default(now())
+
+  @@map(name: "users")
+}
+
+model AdsContent {
+  id                          Int                        @id @default(autoincrement())
+  title                       String                     @db.VarChar(50)
+  content                     String?                    @db.Text
+  publisher                   String                     @db.VarChar(255)
+  image                       String                     @db.VarChar(255)
+  url                         String                     @db.VarChar(255)
+  status                      StatusPublisher            
+  cooperative_center_code     String?                    @db.VarChar(30)
+  cooperativeCenter           CooperativeCenter?         @relation(fields: [cooperative_center_code], references: [code])
+  cooperative_branch_code     String?                    @db.VarChar(30)
+  cooperativeBranch           CooperativeBranch?         @relation(fields: [cooperative_branch_code], references: [code])
+  created_at                  DateTime                   @default(now())
+  updated_at                  DateTime                   @default(now())
+
+  @@map(name: "ads_contents")
+}
+
+enum Status {
+  expired
+  inactive
+  actived
+}
+
+enum RoleUser {
+  administrator
+  editor
+  rki
+  ats
+}
+
+enum StatusPublisher {
+  post
+  draft
+}
+
+enum PaymentPeriod {
+  one_month
+  three_months
+  six_months
+  one_year
+}
+
+enum BillingStatus {
+  active
+  inactive
+}
+
+enum PaymentStatus {
+  paid
+}
+
+enum CouponType {
+  discount_percentage
+  active_period
+}
+
+enum CouponStatus {
+  publish
+  draft
+}
+
+enum RewardType {
+  discount_percentage
+}
+
+enum RewardStatus {
+  used
+  unused
+  expired
+}

@@ -1,0 +1,541 @@
+{
+	"info": {
+		"_postman_id": "25971d57-5aab-4544-9bd8-44c62752074b",
+		"name": "RKI-APPLICATION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27881239"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/users",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/users/1",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"                      : \"Ochobot\",\r\n    \"email\"                     : \"ochobot@gmail.com\",\r\n    \"password\"                  : \"ochobot\",\r\n    \"role\"                      : \"owner\",\r\n    \"cooperative_center_code\"   : null,\r\n    \"cooperative_branch_code\"   : null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/users",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"                      : \"Ochobot\",\r\n    \"email\"                     : \"ochobot@gmail.com\",\r\n    \"role\"                      : \"owner\",\r\n    \"cooperative_center_code\"   : null,\r\n    \"cooperative_branch_code\"   : null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/users/1",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/users/2",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CooperativeCenter",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-center",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-center"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCooperativeCenter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-center/5",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-center",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCooperativeCenter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Koperasi Sukajaya Abadi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-center",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-center"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCooperativeCenter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Koperasi Sukajaya Abadi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-center/5",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-center",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCooperativeCenter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-center/5",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-center",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CooperativeBranch",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-branch",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCooperativeBranch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-branch/1",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-branch",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCooperativeBranch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"                      : \"Koperasi Sukajaya\",\r\n    \"cooperative_center_code\"   : \"COOP-20240603081404bd811b0f0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-branch",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findCooperativeBranch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"                      : \"Koperasi Sukajaya Abadi\",\r\n    \"cooperative_center_code\"   : \"COOP-20240603081404bd811b0f0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-branch/1",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-branch",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCooperativeBranch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/cooperative-branch/2",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"cooperative-branch",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ochobot@gmail.com\",\r\n    \"password\": \"ochobot\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{GLOBAL_URL}}/{{BASE_PATH}}/auth/login",
+							"host": [
+								"{{GLOBAL_URL}}"
+							],
+							"path": [
+								"{{BASE_PATH}}",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
